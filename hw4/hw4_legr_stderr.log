@@ -1,0 +1,261 @@
+20/11/19 15:55:19 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                20/11/19 15:55:33 ERROR Executor: Exception in task 0.0 in stage 138.0 (TID 138)
+org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/worker.py", line 605, in main
+    process()
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/worker.py", line 595, in process
+    out_iter = func(split_index, iterator)
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 425, in func
+    return f(iterator)
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1141, in <lambda>
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1141, in <genexpr>
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.handlePythonException(PythonRunner.scala:503)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:638)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:621)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:456)
+	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+	at scala.collection.Iterator.foreach(Iterator.scala:941)
+	at scala.collection.Iterator.foreach$(Iterator.scala:941)
+	at org.apache.spark.InterruptibleIterator.foreach(InterruptibleIterator.scala:28)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:315)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:313)
+	at org.apache.spark.InterruptibleIterator.to(InterruptibleIterator.scala:28)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:307)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:307)
+	at org.apache.spark.InterruptibleIterator.toBuffer(InterruptibleIterator.scala:28)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:294)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:288)
+	at org.apache.spark.InterruptibleIterator.toArray(InterruptibleIterator.scala:28)
+	at org.apache.spark.rdd.RDD.$anonfun$collect$2(RDD.scala:1004)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2139)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:127)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:446)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1377)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:449)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20/11/19 15:55:33 WARN TaskSetManager: Lost task 0.0 in stage 138.0 (TID 138, ab4c7db4da90, executor driver): org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/worker.py", line 605, in main
+    process()
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/worker.py", line 595, in process
+    out_iter = func(split_index, iterator)
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 425, in func
+    return f(iterator)
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1141, in <lambda>
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1141, in <genexpr>
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.handlePythonException(PythonRunner.scala:503)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:638)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:621)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:456)
+	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+	at scala.collection.Iterator.foreach(Iterator.scala:941)
+	at scala.collection.Iterator.foreach$(Iterator.scala:941)
+	at org.apache.spark.InterruptibleIterator.foreach(InterruptibleIterator.scala:28)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:315)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:313)
+	at org.apache.spark.InterruptibleIterator.to(InterruptibleIterator.scala:28)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:307)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:307)
+	at org.apache.spark.InterruptibleIterator.toBuffer(InterruptibleIterator.scala:28)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:294)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:288)
+	at org.apache.spark.InterruptibleIterator.toArray(InterruptibleIterator.scala:28)
+	at org.apache.spark.rdd.RDD.$anonfun$collect$2(RDD.scala:1004)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2139)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:127)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:446)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1377)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:449)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+20/11/19 15:55:33 ERROR TaskSetManager: Task 0 in stage 138.0 failed 1 times; aborting job
+Traceback (most recent call last):
+  File "hw4_logisticREGR_SGD.py", line 61, in <module>
+    trainErr = labelsAndPreds.filter(lambda p: p[0] != p[1]).count() / float(parsedData.count())
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1141, in count
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1132, in sum
+    return self.mapPartitions(lambda x: [sum(x)]).fold(0, operator.add)
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1003, in fold
+    vals = self.mapPartitions(func).collect()
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 889, in collect
+    sock_info = self.ctx._jvm.PythonRDD.collectAndServe(self._jrdd.rdd())
+  File "/opt/bitnami/spark/python/lib/py4j-0.10.9-src.zip/py4j/java_gateway.py", line 1305, in __call__
+  File "/opt/bitnami/spark/python/lib/py4j-0.10.9-src.zip/py4j/protocol.py", line 328, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.collectAndServe.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 138.0 failed 1 times, most recent failure: Lost task 0.0 in stage 138.0 (TID 138, ab4c7db4da90, executor driver): org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/worker.py", line 605, in main
+    process()
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/worker.py", line 595, in process
+    out_iter = func(split_index, iterator)
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 425, in func
+    return f(iterator)
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1141, in <lambda>
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1141, in <genexpr>
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.handlePythonException(PythonRunner.scala:503)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:638)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:621)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:456)
+	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+	at scala.collection.Iterator.foreach(Iterator.scala:941)
+	at scala.collection.Iterator.foreach$(Iterator.scala:941)
+	at org.apache.spark.InterruptibleIterator.foreach(InterruptibleIterator.scala:28)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:315)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:313)
+	at org.apache.spark.InterruptibleIterator.to(InterruptibleIterator.scala:28)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:307)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:307)
+	at org.apache.spark.InterruptibleIterator.toBuffer(InterruptibleIterator.scala:28)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:294)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:288)
+	at org.apache.spark.InterruptibleIterator.toArray(InterruptibleIterator.scala:28)
+	at org.apache.spark.rdd.RDD.$anonfun$collect$2(RDD.scala:1004)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2139)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:127)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:446)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1377)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:449)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2059)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2008)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2007)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2007)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:973)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:973)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:973)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2239)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2188)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2177)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:775)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2099)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2120)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2139)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2164)
+	at org.apache.spark.rdd.RDD.$anonfun$collect$1(RDD.scala:1004)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:388)
+	at org.apache.spark.rdd.RDD.collect(RDD.scala:1003)
+	at org.apache.spark.api.python.PythonRDD$.collectAndServe(PythonRDD.scala:168)
+	at org.apache.spark.api.python.PythonRDD.collectAndServe(PythonRDD.scala)
+	at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/worker.py", line 605, in main
+    process()
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/worker.py", line 595, in process
+    out_iter = func(split_index, iterator)
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 2596, in pipeline_func
+    return func(split, prev_func(split, iterator))
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 425, in func
+    return f(iterator)
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1141, in <lambda>
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+  File "/opt/bitnami/spark/python/pyspark/rdd.py", line 1141, in <genexpr>
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.handlePythonException(PythonRunner.scala:503)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:638)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:621)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:456)
+	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+	at scala.collection.Iterator.foreach(Iterator.scala:941)
+	at scala.collection.Iterator.foreach$(Iterator.scala:941)
+	at org.apache.spark.InterruptibleIterator.foreach(InterruptibleIterator.scala:28)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:105)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:49)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:315)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:313)
+	at org.apache.spark.InterruptibleIterator.to(InterruptibleIterator.scala:28)
+	at scala.collection.TraversableOnce.toBuffer(TraversableOnce.scala:307)
+	at scala.collection.TraversableOnce.toBuffer$(TraversableOnce.scala:307)
+	at org.apache.spark.InterruptibleIterator.toBuffer(InterruptibleIterator.scala:28)
+	at scala.collection.TraversableOnce.toArray(TraversableOnce.scala:294)
+	at scala.collection.TraversableOnce.toArray$(TraversableOnce.scala:288)
+	at org.apache.spark.InterruptibleIterator.toArray(InterruptibleIterator.scala:28)
+	at org.apache.spark.rdd.RDD.$anonfun$collect$2(RDD.scala:1004)
+	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2139)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+	at org.apache.spark.scheduler.Task.run(Task.scala:127)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:446)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1377)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:449)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+
